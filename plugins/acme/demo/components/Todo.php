@@ -1,6 +1,7 @@
 <?php namespace Acme\Demo\Components;
 
 use Cms\Classes\ComponentBase;
+use Acme\Demo\Models\Task;
 
 class Todo extends ComponentBase
 {
@@ -45,17 +46,15 @@ class Todo extends ComponentBase
 
         $this->page['name']='Moises';
        //$this->name = $this->page['name']='Moises';
-        $this->tasks = [
-            'Limpiar el garaje',
-            'Sacar la basura',
-            'Destapar el lavamano'
-        ];
-
+        $this->tasks = task::Lists('title');
 
     }
 
     public function onAddItem(){
         $taskName = post('task');
+        $task = new Task;
+        $task->title = $taskName;
+        $task->save();
     }
 
 

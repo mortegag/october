@@ -1,4 +1,9 @@
+<form
+data-request ="{{__SELF__}}::onAddItem"
+data-request-success="$('#inputItem').val('')"
+data-request-update ="'{{ __SELF__}}::task':'#result'"
 
+>
 <div class="panel-default">
     <div  class="panel-heading">
         <h1 class="panel-title"> Esta tarea asignada a : {{ __SELF__.name}}     </h1>
@@ -13,18 +18,9 @@
         </div>
 
     </div>
-
-
-
-    {% set tasks = __SELF__.tasks %}
-    <ul class="list-group" id="result">
-        {% for task in tasks %}
-
-            <li  class="list-group-item">
-                {{ task}}
-                <button class="close pull-rigth"> &times; </button>
-            </li>
-
-        {% endfor %}
-    </ul>
+        {% set tasks = __SELF__.tasks %}
+        <ul class="list-group" id="result">
+            {% partial 'tasks' %}
+        </ul>
 </div>
+</form>
