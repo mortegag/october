@@ -1,0 +1,30 @@
+
+<div class="panel-default">
+    <div  class="panel-heading">
+        <h1 class="panel-title"> Esta tarea asignada a : {{ __SELF__.name}}     </h1>
+    <div/>
+
+    <div class="panel-body">
+        <div class="input-group">
+            <input type="text" name="task" id="inputItem" class="form-control" value=""/>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary" > añadir </button>
+            </span>
+        </div>
+
+    </div>
+
+
+
+    {% set tasks = __SELF__.tasks %}
+    <ul class="list-group" id="result">
+        {% for task in tasks %}
+
+            <li  class="list-group-item">
+                {{ task}}
+                <button class="close pull-rigth"> &times; </button>
+            </li>
+
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,4 @@
+1.0.1: First version of Demo
+1.0.2:
+      - Creacion del modelo para las tareas
+      - create_tasks_table.php
